@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth ;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,10 +13,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('welcome',[ProductController::class ,'welcome']);
+Route::get('/',[ProductController::class ,'index']);
+Route::get('create',[ProductController::class ,'create']);
+Route::post('store',[ProductController::class ,'store']);
+Route::put('edit/{id}',[ProductController::class ,'edit']);
+Route::patch('update/{id}',[ProductController::class ,'update']);
+Route::delete('destroy/{id}',[ProductController::class ,'destroy']);
 
 Auth::routes();
 
