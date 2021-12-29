@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = product::where('user_id',Auth::id())->orderBy('created_at','Asc')->paginate(5);
-        return view('index', compact('products'));
+        return view('admin.index', compact('products'));
     }
     public function welcome()
     {
@@ -31,7 +31,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('admin.create');
     }
 
     /**
@@ -77,7 +77,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = product::find($id);
-        return view('edit', compact('product'));
+        return view('admin.edit', compact('product'));
     }
 
     /**

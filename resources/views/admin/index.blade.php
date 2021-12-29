@@ -16,8 +16,9 @@
                         <th scope="col">إسم المنتج</th>
                         <th scope="col">سعر المنتج</th>
                         <th scope="col">كمية المنتج</th>
-                        <th scope="col">&nbsp</th>
-                        <th scope="col">&nbsp</th>
+                        <th scope="col">وصف المنتج</th>
+                        <th scope="col">تعديل</th>
+                        <th scope="col">حذف</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -27,6 +28,7 @@
                         <td>{{$product->name}}</td>
                         <td>${{$product->price}}</td>
                         <td>{{$product->quantity}}</td>
+                        <td>{{$product->details}}</td>
                         <td>
                             <form action="{{url('edit/'.$product->id)}}" method="POST">
                                 @csrf
